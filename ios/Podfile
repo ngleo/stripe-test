@@ -33,7 +33,7 @@ target 'Runner' do
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   
-#  pod 'Stripe', :git => 'https://github.com/stripe/stripe-ios.git', :branch =>'davidme/mc-beta-2-bundle'
+  pod 'Stripe', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'mc-beta-2'
 end
 
 post_install do |installer|

@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:treeapp_stripe_plugin/treeapp_stripe_plugin.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,14 +17,12 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    // setupLocator();
 
-    // TreeappStripePlugin.
     init(
         "pk_test_51Hs8nUBYwOfZ2CjY6EkcPQnC13Rl1mHKBro6gew1ooHtxAXMdMTUCj62ZDi0swL9XTLVcBkRPtvs46Hs5BXOmLwT00T6ngnpOc");
   }
 
-  static const MethodChannel _channel = const MethodChannel('treeapp_stripe_plugin');
+  static const MethodChannel _channel = const MethodChannel('stripe_plugin');
 
   static Future<void> init(String publishableKey,
       [String applePayMerchantIdentifier]) async {
@@ -90,23 +87,18 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // RaisedButton(
-              //   onPressed: () => getPaymentIntent(),
-              //   child: Text("Get payment intent"),
-              // ),
-            ],
+            children: [],
           ),
         ),
         floatingActionButton: FloatingActionButton(onPressed: () async {
-          Dio dio = Dio()..options.baseUrl = "http://192.168.0.104:8080";
+          Dio dio = Dio()
+            ..options.baseUrl = "https://sandbox-306315.ew.r.appspot.com";
           Map data = {
             "userId": "cus_Ic6qhcpZkOsOvc",
             "amount": 1 * 100,
           };
           Response res = await dio.post("/stripe/createPayment", data: data);
           print(res.data);
-          // TreeappStripePlugin.
           startPaymentFlow(
             ephemeralKey: res.data["ephemeralKey"],
             paymentIntentSecret: res.data["paymentIntentSecret"],
@@ -120,7 +112,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  SnackBar snackbar(String s) {
-    return SnackBar(content: Text(s));
-  }
+  // SnackBar snackbar(String s) {
+  //   return SnackBar(content: Text(s));
+  // }
 }

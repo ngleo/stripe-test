@@ -8,12 +8,8 @@ import Stripe
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-
-    
     let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
-    let channel = FlutterMethodChannel(name: "treeapp_stripe_plugin",
-                                       binaryMessenger: controller.binaryMessenger)
-
+    let channel = FlutterMethodChannel(name: "stripe_plugin", binaryMessenger: controller.binaryMessenger)
 
     channel.setMethodCallHandler {(call: FlutterMethodCall, result: FlutterResult) -> Void in
       if (call.method == "setupStripe") {
@@ -32,7 +28,7 @@ import Stripe
              let customerId = args["customerId"] as? String {
 
             var configuration = PaymentSheet.Configuration()
-            configuration.merchantDisplayName = "Treeapp"
+            configuration.merchantDisplayName = "Test"
     //        configuration.applePay = .init(merchantId: "merchant.com.your_app_name", merchantCountryCode: "GB")
             configuration.customer = .init(id: customerId, ephemeralKeySecret: ephemeralKey)
             let paymentSheet: PaymentSheet = PaymentSheet(paymentIntentClientSecret: paymentIntentSecret, configuration: configuration)
@@ -59,6 +55,4 @@ import Stripe
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
-
-
 }

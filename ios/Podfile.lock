@@ -1,29 +1,29 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_stripe_payment (0.0.12):
-    - Flutter
-    - Stripe (= 19.0.1)
-  - Stripe (19.0.1)
+  - Stripe (21.0.0-mc-beta-1):
+    - Stripe/Stripe3DS2 (= 21.0.0-mc-beta-1)
+  - Stripe/Stripe3DS2 (21.0.0-mc-beta-1)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - flutter_stripe_payment (from `.symlinks/plugins/flutter_stripe_payment/ios`)
-
-SPEC REPOS:
-  trunk:
-    - Stripe
+  - Stripe (from `https://github.com/stripe/stripe-ios.git`, branch `mc-beta-2`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  flutter_stripe_payment:
-    :path: ".symlinks/plugins/flutter_stripe_payment/ios"
+  Stripe:
+    :branch: mc-beta-2
+    :git: https://github.com/stripe/stripe-ios.git
+
+CHECKOUT OPTIONS:
+  Stripe:
+    :commit: 5f1cfb23339ebc21fc30e53b3bbc9404cff08859
+    :git: https://github.com/stripe/stripe-ios.git
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_stripe_payment: 9baed5181b4aaf236ca4cdaa71b75abd56bafd03
-  Stripe: 03313f9520a0786e2c00d9a7a2672c11e08821af
+  Stripe: 4f9369bb8f036ed106d12355e622d934c2ec60a1
 
-PODFILE CHECKSUM: da7e70e3765ed1de3a0cf6fb5996b79b531fddd4
+PODFILE CHECKSUM: f02418926f6d2348cc85b0eb3038e9739a31436b
 
 COCOAPODS: 1.10.1
